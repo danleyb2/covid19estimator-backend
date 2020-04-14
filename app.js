@@ -76,12 +76,6 @@ app.use((req, res, next) => {
         console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`);
     });
 
-    res.on('close', () => {
-        const durationInMilliseconds = getDurationInMilliseconds (start);
-        logRequest(req.method,req.originalUrl,res.statusCode,durationInMilliseconds);
-        console.log(`${req.method} ${req.originalUrl} [CLOSED] ${durationInMilliseconds.toLocaleString()} ms`);
-    });
-
     next()
 });
 
