@@ -123,7 +123,7 @@ exports.logs = async function (req, res,next) {
     const logs = await  Log.find({});
 
     logs.forEach(function (log) {
-        let logLine = `${log.method}\t\t${log.path}\t\t${log.status}\t\t${log.time}`;
+        let logLine = `${log.method}\t\t${log.path}\t\t${log.status}\t\t${Math.trunc(log.time)} ms`;
         logLines.push(logLine);
     });
 
