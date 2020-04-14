@@ -120,7 +120,7 @@ exports.logs = async function (req, res,next) {
     const logs = await  Log.find({},null,{sort: '-createdAt'});
 
     logs.forEach(function (log) {
-        let logLine = `${log.method}\t${log.path}\t${log.status}\t${Math.trunc(log.time)}ms`;
+        let logLine = `${log.method}\t${log.path}\t${log.status}\t${String(Math.trunc(log.time)).padStart(2, '0')}ms`;
         logLines.push(logLine);
     });
 
