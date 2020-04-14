@@ -93,9 +93,8 @@ class Estimator {
 }
 
 
-exports.estimate = async function (req, res,next) {
+exports.estimate = function (req, res,next) {
     console.log(req.body);
-
     const data = req.body;
 
     const estimator = new Estimator(data);
@@ -108,13 +107,11 @@ exports.estimate = async function (req, res,next) {
     console.log(estimation);
 
     if (req.params['format']=='xml'){
-        var xml = builder.create(obj).end({ pretty: true});
-
+        var xml = builder.create(estimation).end({ pretty: true});
         res.status(200).type('application/xml').send(xml);
-
     }
 
-    res.status(200).json(data);
+    res.status(200).json(estimation);
 
 };
 
@@ -127,6 +124,6 @@ exports.logs = async function (req, res,next) {
         logLines.push(logLine);
     });
 
-    res.type('text/plain').send(logLines.join('\n\r'));
+    res.type('text/plain').send(logLines.join('\n'));
 
 };
