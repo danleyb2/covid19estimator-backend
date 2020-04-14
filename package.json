@@ -1,0 +1,30 @@
+{
+  "name": "covid19estimator",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "10.13.0"
+  },
+  "scripts": {
+    "start": "node -r dotenv/config ./bin/www",
+    "devstart": "nodemon -r dotenv/config ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:danleyb2/covid19estimator-backend.git"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.4",
+    "mongoose": "5.4.1",
+    "morgan": "~1.9.0",
+    "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
