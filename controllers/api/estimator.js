@@ -117,7 +117,7 @@ exports.estimate = function (req, res,next) {
 
 exports.logs = async function (req, res,next) {
     let logLines = [];
-    const logs = await  Log.find({});
+    const logs = await  Log.find({},null,{sort: '-createdAt'});
 
     logs.forEach(function (log) {
         let logLine = `${log.method}\t\t${log.path}\t\t${log.status}\t\t${Math.trunc(log.time)} ms`;
