@@ -127,6 +127,6 @@ exports.logs = async function (req, res,next) {
         logLines.push(logLine);
     });
 
-    res.type('text/plain').send(logs.join('\n\r'));
+    res.type('text/plain').send(logLines.join('\n\r'));
 
 };
